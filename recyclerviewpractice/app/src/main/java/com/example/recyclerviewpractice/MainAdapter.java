@@ -14,18 +14,18 @@ import java.util.ArrayList;
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHolder> {
 
     private ArrayList<MainData> arrayList;                                                                          // MainData에서 만든 데이터를 배열로 받아옴
-    public MainAdapter(MainActivity mainActivity, ArrayList<MainData> arrayList) {
-        this.arrayList = arrayList;
+    public MainAdapter(MainActivity mainActivity, ArrayList<MainData> arrayList) {                                  // MainAdapter 생성자
+        this.arrayList = arrayList;                                                                                 // arrayList 파라미터
     }
 
     public class CustomViewHolder extends RecyclerView.ViewHolder {                                                 // list_item에서 만든 객체를 어댑터와 연결
 
-        protected ImageView iv_profile;
+        protected ImageView iv_profile;                                                                             // 외부 클래스에서 보호받는 protected 를 통해 필드 선언
         protected TextView tv_name;
         protected TextView tv_birth;
 
-        public CustomViewHolder(@NonNull View itemView) {
-            super(itemView);
+        public CustomViewHolder(@NonNull View itemView) {                                                           // CustomviewHolder 생성자
+            super(itemView);                                                                                        // super 메소드를 이용해 강제로 itemView 생성자 호출
             this.iv_profile = (ImageView) itemView.findViewById(R.id.iv_profile);
             this.tv_name = (TextView) itemView.findViewById(R.id.tv_name);
             this.tv_birth = (TextView) itemView.findViewById(R.id.tv_birth);
@@ -37,7 +37,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
     public MainAdapter.CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {              // ViewHolder를 만들때마다 호출 ViewHolder를 초기화 하는 메서드
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item,parent,false);  // list_item을 layouinflater를 이용하여 띄워줌
-        CustomViewHolder holder = new CustomViewHolder(view);
+        CustomViewHolder holder = new CustomViewHolder(view);                                                      // CustomViewHolder 인스턴스
 
         return holder;                                                                                             // 바로 위에서 만든 holder를 return 해준다
     }
